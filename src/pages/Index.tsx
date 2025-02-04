@@ -7,7 +7,7 @@ import { Input } from "@/components/ui/input";
 import { Card } from "@/components/ui/card";
 import Logo from '@/components/Logo';
 import Footer from '@/components/Footer';
-import { Lock, Mail } from 'lucide-react';
+import { Lock, Mail, Building2, Phone, HelpCircle } from 'lucide-react';
 
 const Index = () => {
   const [email, setEmail] = useState('');
@@ -19,42 +19,63 @@ const Index = () => {
   };
 
   return (
-    <div className="min-h-screen flex flex-col bg-gradient-to-b from-gray-50 to-white">
-      <header className="w-full py-6 px-4 border-b bg-white">
+    <div className="min-h-screen flex flex-col bg-gradient-to-br from-blue-50 via-white to-blue-50">
+      <header className="w-full py-4 px-4 bg-white border-b">
         <div className="max-w-7xl mx-auto flex justify-between items-center">
           <Logo />
-          <Link 
-            to="/enroll"
-            className="text-sm font-medium text-gray-600 hover:text-gray-800 transition-colors"
-          >
-            New User? Enroll Now
-          </Link>
+          <div className="flex items-center gap-6">
+            <Link to="tel:1-800-555-0123" className="hidden md:flex items-center gap-2 text-sm text-gray-600">
+              <Phone size={16} />
+              1-800-555-0123
+            </Link>
+            <Link to="/help" className="hidden md:flex items-center gap-2 text-sm text-gray-600">
+              <HelpCircle size={16} />
+              Support
+            </Link>
+          </div>
         </div>
       </header>
 
-      <main className="flex-1 flex items-center justify-center px-4 py-12">
-        <div className="w-full max-w-4xl grid md:grid-cols-2 gap-8 items-center">
-          <div className="hidden md:block">
-            <img
-              src="https://images.unsplash.com/photo-1488590528505-98d2b5aba04b"
-              alt="Utility Management"
-              className="w-full h-[400px] object-cover rounded-lg shadow-lg"
-            />
-            <div className="mt-6 space-y-4">
-              <h2 className="text-2xl font-semibold text-gray-800">
-                Smart Utility Management
-              </h2>
-              <p className="text-gray-600">
-                Access your utility data, manage your account, and track your usage all in one place.
-              </p>
+      <main className="flex-1 flex items-center justify-center px-4 py-8">
+        <div className="w-full max-w-6xl grid lg:grid-cols-2 gap-12 items-center">
+          {/* Left Column - Value Proposition */}
+          <div className="hidden lg:flex flex-col space-y-8">
+            <div className="relative">
+              <img
+                src="https://images.unsplash.com/photo-1460925895917-afdab827c52f"
+                alt="Smart Utility Management"
+                className="w-full h-[500px] object-cover rounded-2xl shadow-xl"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent rounded-2xl flex items-end p-8">
+                <div className="text-white">
+                  <h2 className="text-3xl font-bold mb-3">Smart Utility Management</h2>
+                  <p className="text-lg text-gray-200">
+                    Monitor and manage your utilities efficiently with our smart metering solutions
+                  </p>
+                </div>
+              </div>
+            </div>
+            
+            <div className="grid grid-cols-2 gap-6">
+              <div className="p-4 bg-white rounded-lg shadow-md">
+                <Building2 className="h-6 w-6 text-blue-600 mb-2" />
+                <h3 className="font-semibold mb-1">Smart Metering</h3>
+                <p className="text-sm text-gray-600">Real-time monitoring of your utility usage</p>
+              </div>
+              <div className="p-4 bg-white rounded-lg shadow-md">
+                <HelpCircle className="h-6 w-6 text-blue-600 mb-2" />
+                <h3 className="font-semibold mb-1">24/7 Support</h3>
+                <p className="text-sm text-gray-600">Expert assistance whenever you need it</p>
+              </div>
             </div>
           </div>
 
-          <div className="w-full max-w-md mx-auto">
-            <Card className="p-8 shadow-lg border-0">
+          {/* Right Column - Login Form */}
+          <div className="w-full max-w-md mx-auto space-y-6">
+            <Card className="p-8 shadow-xl border-0">
               <div className="text-center mb-8">
-                <h1 className="text-2xl font-semibold text-gray-800 mb-2">Welcome Back</h1>
-                <p className="text-gray-600">Sign in to your account</p>
+                <h1 className="text-2xl font-bold text-gray-900">Welcome Back</h1>
+                <p className="text-gray-600 mt-2">Sign in to manage your utilities</p>
               </div>
 
               <form onSubmit={handleSubmit} className="space-y-6">
@@ -96,22 +117,22 @@ const Index = () => {
                   </Link>
                 </div>
 
-                <Button type="submit" className="w-full bg-blue-600 hover:bg-blue-700 text-white">
+                <Button type="submit" className="w-full bg-blue-600 hover:bg-blue-700">
                   Sign In
                 </Button>
               </form>
             </Card>
 
-            {/* New prominent enrollment CTA */}
-            <div className="mt-8 p-6 bg-blue-50 rounded-lg border border-blue-100">
-              <h3 className="text-lg font-semibold text-gray-800 mb-2">Need to sign up for Utilities?</h3>
-              <p className="text-gray-600 mb-4">Get started with our simple enrollment process today.</p>
+            {/* Enrollment CTA Card */}
+            <Card className="p-6 bg-gradient-to-r from-blue-600 to-blue-700 text-white">
+              <h3 className="text-lg font-semibold mb-2">New to our services?</h3>
+              <p className="text-blue-100 mb-4">Get started with our simple enrollment process for utility services.</p>
               <Link to="/enroll">
-                <Button className="w-full bg-white text-blue-600 hover:bg-blue-50 border border-blue-200">
-                  Fill Out Enrollment Form
+                <Button className="w-full bg-white hover:bg-gray-100 text-blue-600">
+                  Start Enrollment
                 </Button>
               </Link>
-            </div>
+            </Card>
           </div>
         </div>
       </main>
