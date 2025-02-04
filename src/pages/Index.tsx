@@ -36,7 +36,7 @@ const Index = () => {
         <div className="w-full max-w-4xl grid md:grid-cols-2 gap-8 items-center">
           <div className="hidden md:block">
             <img
-              src="https://images.unsplash.com/photo-1605810230434-7631ac76ec81"
+              src="https://images.unsplash.com/photo-1488590528505-98d2b5aba04b"
               alt="Utility Management"
               className="w-full h-[400px] object-cover rounded-lg shadow-lg"
             />
@@ -99,17 +99,19 @@ const Index = () => {
                 <Button type="submit" className="w-full bg-blue-600 hover:bg-blue-700 text-white">
                   Sign In
                 </Button>
-
-                <div className="text-center mt-6">
-                  <p className="text-gray-600 text-sm">
-                    Don't have an account?{' '}
-                    <Link to="/enroll" className="text-blue-600 hover:text-blue-800 font-medium transition-colors">
-                      Create Account
-                    </Link>
-                  </p>
-                </div>
               </form>
             </Card>
+
+            {/* New prominent enrollment CTA */}
+            <div className="mt-8 p-6 bg-blue-50 rounded-lg border border-blue-100">
+              <h3 className="text-lg font-semibold text-gray-800 mb-2">Need to sign up for Utilities?</h3>
+              <p className="text-gray-600 mb-4">Get started with our simple enrollment process today.</p>
+              <Link to="/enroll">
+                <Button className="w-full bg-white text-blue-600 hover:bg-blue-50 border border-blue-200">
+                  Fill Out Enrollment Form
+                </Button>
+              </Link>
+            </div>
           </div>
         </div>
       </main>
