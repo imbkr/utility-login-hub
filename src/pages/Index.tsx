@@ -124,12 +124,12 @@ const Index = () => {
             </Card>
 
             {/* Enrollment CTA Card */}
-            <Card className="p-6 bg-gradient-to-r from-blue-600 to-blue-700 text-white">
+            <Card className="p-6 bg-gradient-to-r from-blue-50 to-blue-100 text-blue-900">
               <h3 className="text-lg font-semibold mb-2">New to our services?</h3>
-              <p className="text-blue-100 mb-4">Get started with our simple enrollment process for utility services.</p>
+              <p className="text-blue-800 mb-4">Get started with our simple enrollment process for utility services.</p>
               <Link to="/enroll">
-                <Button className="w-full bg-white hover:bg-gray-100 text-blue-600">
-                  Start Enrollment
+                <Button className="w-full bg-blue-600 hover:bg-blue-700 text-white">
+                  Fill Out Enrollment Form
                 </Button>
               </Link>
             </Card>
@@ -143,3 +143,4 @@ const Index = () => {
 };
 
 export default Index;
+
