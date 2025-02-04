@@ -1,6 +1,6 @@
 
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 import { toast } from 'sonner';
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -8,14 +8,49 @@ import { Card } from "@/components/ui/card";
 import Logo from '@/components/Logo';
 import Footer from '@/components/Footer';
 import { Lock, Mail, Building2, Phone, HelpCircle } from 'lucide-react';
+import { supabase } from "@/integrations/supabase/client";
 
 const Index = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [loading, setLoading] = useState(false);
+  const navigate = useNavigate();
 
-  const handleSubmit = (e: React.FormEvent) => {
+  useEffect(() => {
+    supabase.auth.getSession().then(({ data: { session } }) => {
+      if (session) {
+        navigate('/dashboard');
+      }
+    });
+
+    const {
+      data: { subscription },
+    } = supabase.auth.onAuthStateChange((_event, session) => {
+      if (session) {
+        navigate('/dashboard');
+      }
+    });
+
+    return () => subscription.unsubscribe();
+  }, [navigate]);
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    toast.info("Login functionality will be implemented in the next phase");
+    setLoading(true);
+
+    try {
+      const { error } = await supabase.auth.signInWithPassword({
+        email,
+        password,
+      });
+
+      if (error) throw error;
+      toast.success('Logged in successfully');
+    } catch (error: any) {
+      toast.error(error.message || 'An error occurred during login');
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -24,6 +59,9 @@ const Index = () => {
         <div className="max-w-7xl mx-auto flex justify-between items-center">
           <Logo />
           <div className="flex items-center gap-6">
+            <Link to="/test-login" className="text-sm text-blue-600 hover:text-blue-800">
+              Test Login
+            </Link>
             <Link to="tel:1-800-555-0123" className="hidden md:flex items-center gap-2 text-sm text-gray-600">
               <Phone size={16} />
               1-800-555-0123
@@ -117,8 +155,12 @@ const Index = () => {
                   </Link>
                 </div>
 
-                <Button type="submit" className="w-full bg-blue-600 hover:bg-blue-700">
-                  Sign In
+                <Button 
+                  type="submit" 
+                  className="w-full bg-blue-600 hover:bg-blue-700"
+                  disabled={loading}
+                >
+                  {loading ? 'Signing in...' : 'Sign In'}
                 </Button>
               </form>
             </Card>
@@ -143,4 +185,3 @@ const Index = () => {
 };
 
 export default Index;
-

@@ -7,6 +7,9 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Index from "./pages/Index";
 import Enroll from "./pages/Enroll";
 import NotFound from "./pages/NotFound";
+import ForgotPassword from "./pages/Auth/ForgotPassword";
+import ResetPassword from "./pages/Auth/ResetPassword";
+import TestLogin from "./pages/Auth/TestLogin";
 
 const queryClient = new QueryClient();
 
@@ -19,6 +22,9 @@ const App = () => (
         <Routes>
           <Route path="/" element={<Index />} />
           <Route path="/enroll" element={<Enroll />} />
+          <Route path="/forgot-password" element={<ForgotPassword />} />
+          <Route path="/reset-password" element={<ResetPassword />} />
+          <Route path="/test-login" element={<TestLogin />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>
