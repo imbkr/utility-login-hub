@@ -50,7 +50,7 @@ const sidebarItems = [
 const SidebarContent = () => (
   <div className="space-y-4 py-4">
     <div className="px-3 py-2">
-      <h2 className="mb-2 px-4 text-lg font-semibold">Menu</h2>
+      <h2 className="mb-2 px-4 text-lg font-semibold text-[#D6BCFA]">Menu</h2>
       <div className="space-y-1">
         {sidebarItems.map((item) => (
           <NavLink
@@ -58,8 +58,8 @@ const SidebarContent = () => (
             to={item.href}
             className={({ isActive }) =>
               cn(
-                "flex items-center rounded-lg px-3 py-2 text-sm transition-all hover:bg-accent",
-                isActive ? "bg-accent" : "transparent"
+                "flex items-center rounded-lg px-3 py-2 text-sm transition-all text-white hover:bg-[#6E59A5]/20",
+                isActive ? "bg-[#6E59A5]/30" : "transparent"
               )
             }
           >
@@ -80,17 +80,17 @@ export const CustomerSidebar = () => {
       {/* Mobile Sidebar */}
       <Sheet open={open} onOpenChange={setOpen}>
         <SheetTrigger asChild>
-          <Button variant="ghost" className="md:hidden">
+          <Button variant="ghost" className="md:hidden text-white">
             <Menu className="h-6 w-6" />
           </Button>
         </SheetTrigger>
-        <SheetContent side="left" className="w-64">
+        <SheetContent side="left" className="w-64 bg-[#1A1F2C] border-r border-[#9b87f5]/20">
           <SidebarContent />
         </SheetContent>
       </Sheet>
 
       {/* Desktop Sidebar */}
-      <div className="hidden border-r bg-gray-100/40 md:block md:w-64">
+      <div className="hidden border-r border-[#9b87f5]/20 bg-[#1A1F2C] md:block md:w-64">
         <div className="h-full">
           <SidebarContent />
         </div>
