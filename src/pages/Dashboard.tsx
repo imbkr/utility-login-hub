@@ -69,7 +69,7 @@ const Dashboard = () => {
   };
 
   return (
-    <div className="flex min-h-screen bg-gray-50">
+    <div className="flex min-h-screen bg-white">
       <CustomerSidebar />
       
       <div className="flex-1">
@@ -84,67 +84,67 @@ const Dashboard = () => {
 
         <main className="p-4 sm:p-6 lg:p-8">
           {/* Account Information */}
-          <Card className="mb-8">
+          <Card className="mb-8 bg-[#E0EDFD] border-gray-200">
             <CardHeader>
               <CardTitle>Account Information</CardTitle>
             </CardHeader>
             <CardContent>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div>
-                  <p className="text-sm text-muted-foreground">Account Number</p>
-                  <p className="text-lg font-medium">{profile?.account_number || 'N/A'}</p>
+                  <p className="text-sm text-gray-600">Account Number</p>
+                  <p className="text-lg font-medium text-gray-900">{profile?.account_number || 'N/A'}</p>
                 </div>
                 <div>
-                  <p className="text-sm text-muted-foreground">Service Address</p>
-                  <p className="text-lg font-medium">{profile?.service_address || 'N/A'}</p>
+                  <p className="text-sm text-gray-600">Service Address</p>
+                  <p className="text-lg font-medium text-gray-900">{profile?.service_address || 'N/A'}</p>
                 </div>
                 <div>
-                  <p className="text-sm text-muted-foreground">Name</p>
-                  <p className="text-lg font-medium">
+                  <p className="text-sm text-gray-600">Name</p>
+                  <p className="text-lg font-medium text-gray-900">
                     {profile?.first_name} {profile?.last_name}
                   </p>
                 </div>
                 <div>
-                  <p className="text-sm text-muted-foreground">Email</p>
-                  <p className="text-lg font-medium">{profile?.email}</p>
+                  <p className="text-sm text-gray-600">Email</p>
+                  <p className="text-lg font-medium text-gray-900">{profile?.email}</p>
                 </div>
               </div>
             </CardContent>
           </Card>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
-            <Card>
+            <Card className="bg-[#E0EDFD] border-gray-200">
               <CardHeader className="flex flex-row items-center justify-between pb-2 space-y-0">
                 <CardTitle className="text-sm font-medium">Total Balance</CardTitle>
-                <DollarSign className="h-4 w-4 text-muted-foreground" />
+                <DollarSign className="h-4 w-4 text-gray-600" />
               </CardHeader>
               <CardContent>
-                <div className="text-2xl font-bold">$250.00</div>
-                <p className="text-xs text-muted-foreground">
+                <div className="text-2xl font-bold text-gray-900">$250.00</div>
+                <p className="text-xs text-gray-600">
                   Due by April 30, 2024
                 </p>
               </CardContent>
             </Card>
-            <Card>
+            <Card className="bg-[#E0EDFD] border-gray-200">
               <CardHeader className="flex flex-row items-center justify-between pb-2 space-y-0">
                 <CardTitle className="text-sm font-medium">Last Payment</CardTitle>
-                <CreditCard className="h-4 w-4 text-muted-foreground" />
+                <CreditCard className="h-4 w-4 text-gray-600" />
               </CardHeader>
               <CardContent>
-                <div className="text-2xl font-bold">$175.00</div>
-                <p className="text-xs text-muted-foreground">
+                <div className="text-2xl font-bold text-gray-900">$175.00</div>
+                <p className="text-xs text-gray-600">
                   Paid on March 15, 2024
                 </p>
               </CardContent>
             </Card>
-            <Card>
+            <Card className="bg-[#E0EDFD] border-gray-200">
               <CardHeader className="flex flex-row items-center justify-between pb-2 space-y-0">
                 <CardTitle className="text-sm font-medium">Total Bills</CardTitle>
-                <FileText className="h-4 w-4 text-muted-foreground" />
+                <FileText className="h-4 w-4 text-gray-600" />
               </CardHeader>
               <CardContent>
-                <div className="text-2xl font-bold">12</div>
-                <p className="text-xs text-muted-foreground">
+                <div className="text-2xl font-bold text-gray-900">12</div>
+                <p className="text-xs text-gray-600">
                   In the last 12 months
                 </p>
               </CardContent>
@@ -152,7 +152,7 @@ const Dashboard = () => {
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-            <Card>
+            <Card className="bg-[#E0EDFD] border-gray-200">
               <CardHeader>
                 <CardTitle>Recent Bills</CardTitle>
               </CardHeader>
@@ -193,7 +193,7 @@ const Dashboard = () => {
               </CardContent>
             </Card>
 
-            <Card>
+            <Card className="bg-[#E0EDFD] border-gray-200">
               <CardHeader>
                 <CardTitle>Recent Transactions</CardTitle>
               </CardHeader>
