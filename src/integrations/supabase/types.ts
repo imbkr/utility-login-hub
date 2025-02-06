@@ -9,24 +9,150 @@ export type Json =
 export type Database = {
   public: {
     Tables: {
+      bills: {
+        Row: {
+          amount: number
+          bill_date: string
+          created_at: string | null
+          id: string
+          status: string | null
+          updated_at: string | null
+          user_id: string
+        }
+        Insert: {
+          amount: number
+          bill_date: string
+          created_at?: string | null
+          id?: string
+          status?: string | null
+          updated_at?: string | null
+          user_id: string
+        }
+        Update: {
+          amount?: number
+          bill_date?: string
+          created_at?: string | null
+          id?: string
+          status?: string | null
+          updated_at?: string | null
+          user_id?: string
+        }
+        Relationships: []
+      }
+      disconnect_requests: {
+        Row: {
+          city: string
+          country: string
+          created_at: string | null
+          disconnect_date: string
+          id: string
+          postal_code: string
+          province: string | null
+          reason: string
+          state: string
+          status: string | null
+          street_name: string
+          user_id: string
+        }
+        Insert: {
+          city: string
+          country: string
+          created_at?: string | null
+          disconnect_date: string
+          id?: string
+          postal_code: string
+          province?: string | null
+          reason: string
+          state: string
+          status?: string | null
+          street_name: string
+          user_id: string
+        }
+        Update: {
+          city?: string
+          country?: string
+          created_at?: string | null
+          disconnect_date?: string
+          id?: string
+          postal_code?: string
+          province?: string | null
+          reason?: string
+          state?: string
+          status?: string | null
+          street_name?: string
+          user_id?: string
+        }
+        Relationships: []
+      }
       profiles: {
         Row: {
+          billing_address: string | null
           created_at: string | null
+          date_of_birth: string | null
           email: string | null
+          first_name: string | null
           id: string
+          last_name: string | null
+          phone: string | null
+          postal_code: string | null
+          service_address: string | null
           updated_at: string | null
         }
         Insert: {
+          billing_address?: string | null
           created_at?: string | null
+          date_of_birth?: string | null
           email?: string | null
+          first_name?: string | null
           id: string
+          last_name?: string | null
+          phone?: string | null
+          postal_code?: string | null
+          service_address?: string | null
           updated_at?: string | null
         }
         Update: {
+          billing_address?: string | null
           created_at?: string | null
+          date_of_birth?: string | null
           email?: string | null
+          first_name?: string | null
           id?: string
+          last_name?: string | null
+          phone?: string | null
+          postal_code?: string | null
+          service_address?: string | null
           updated_at?: string | null
+        }
+        Relationships: []
+      }
+      transactions: {
+        Row: {
+          amount: number
+          created_at: string | null
+          date: string
+          id: string
+          payment_method: string
+          status: string | null
+          user_id: string
+        }
+        Insert: {
+          amount: number
+          created_at?: string | null
+          date: string
+          id?: string
+          payment_method: string
+          status?: string | null
+          user_id: string
+        }
+        Update: {
+          amount?: number
+          created_at?: string | null
+          date?: string
+          id?: string
+          payment_method?: string
+          status?: string | null
+          user_id?: string
         }
         Relationships: []
       }
