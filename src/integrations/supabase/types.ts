@@ -86,6 +86,7 @@ export type Database = {
       }
       profiles: {
         Row: {
+          account_number: string | null
           billing_address: string | null
           created_at: string | null
           date_of_birth: string | null
@@ -99,6 +100,7 @@ export type Database = {
           updated_at: string | null
         }
         Insert: {
+          account_number?: string | null
           billing_address?: string | null
           created_at?: string | null
           date_of_birth?: string | null
@@ -112,6 +114,7 @@ export type Database = {
           updated_at?: string | null
         }
         Update: {
+          account_number?: string | null
           billing_address?: string | null
           created_at?: string | null
           date_of_birth?: string | null

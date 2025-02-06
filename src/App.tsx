@@ -14,6 +14,8 @@ import Dashboard from "./pages/Dashboard";
 import Bills from "./pages/Bills";
 import Transactions from "./pages/Transactions";
 import Profile from "./pages/Profile";
+import PreAuthorizedPayment from "./pages/PreAuthorizedPayment";
+import DisconnectRequest from "./pages/DisconnectRequest";
 
 const queryClient = new QueryClient();
 
@@ -33,6 +35,8 @@ const App = () => (
           <Route path="/bills" element={<Bills />} />
           <Route path="/transactions" element={<Transactions />} />
           <Route path="/profile" element={<Profile />} />
+          <Route path="/pre-authorized-payment" element={<PreAuthorizedPayment />} />
+          <Route path="/disconnect-request" element={<DisconnectRequest />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>
